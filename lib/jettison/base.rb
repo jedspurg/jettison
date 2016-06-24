@@ -2,7 +2,7 @@ module Jettison
   def jettison
     table_name   = self.class.table_name
     fixture_file = "#{Rails.root}/test/fixtures/#{table_name}.yml"
-    fixture_name = "#{table_name.singularize}_#{id}"
+    fixture_name = "#{table_name.singularize}_#{SecureRandom.hex}"
 
     File.open(fixture_file, "a") do |f|
       attrs = attributes.dup
